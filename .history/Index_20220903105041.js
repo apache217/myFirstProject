@@ -60,6 +60,4 @@ app.get(`/users/:gender`, (req, res) => {
   res.send(sameGendUsers);
 });
 
-app.listen(port, () => {
-  console.log(`Server started`)
-  console.log(process.env.PORT)});
+app.listen(port, () => console.log(`Server started`));

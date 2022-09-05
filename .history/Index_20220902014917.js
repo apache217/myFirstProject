@@ -2,9 +2,6 @@ const express = require(`express`);
 const bodyParser = require(`body-parser`);
 const app = express();
 const users = require(`./users`);
-
-
-
 app.use(bodyParser.json());
 
 const port = 3000;
@@ -60,6 +57,4 @@ app.get(`/users/:gender`, (req, res) => {
   res.send(sameGendUsers);
 });
 
-app.listen(port, () => {
-  console.log(`Server started`)
-  console.log(process.env.PORT)});
+app.listen(port, () => console.log(`Server started`));
