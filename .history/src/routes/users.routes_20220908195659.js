@@ -50,7 +50,7 @@ router.delete("/user/:id", (req, res) => {
 
 router.get(`/users/:gender`, (req, res) => {
   try {
-    const result = UsersControllers.getUsersbyGender(req);
+    const result = UsersControllers.getUsersbyMinMaxAge(req);
     res.send(result)
   } catch (error) {
     res.send(error.message);

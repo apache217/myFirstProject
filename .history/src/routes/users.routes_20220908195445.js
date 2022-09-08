@@ -49,12 +49,12 @@ router.delete("/user/:id", (req, res) => {
 });
 
 router.get(`/users/:gender`, (req, res) => {
-  try {
-    const result = UsersControllers.getUsersbyGender(req);
-    res.send(result)
-  } catch (error) {
-    res.send(error.message);
-  }
+  let sameGendUsers = new Array();
+  if (req.params.gender == "F")
+    sameGendUsers = users.filter((item) => item.isMan == false);
+  else if (req.params.gender == "M")
+    sameGendUsers = users.filter((item) => item.isMan == true);
+  res.send(sameGendUsers);
 });
 
 module.exports = router;

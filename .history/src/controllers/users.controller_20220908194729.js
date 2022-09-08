@@ -41,28 +41,6 @@ class UsersControlles {
     users.splice(0, users.length, ...updUsers);
     return users.find((item) => item.id == req.body.id);
   }
-
-  patchUsersID(req) {
-    const updUsers = users.map((item) =>
-      item.id == req.body.id
-        ? { ...item, name: req.body.name, isMan: req.body.isMan }
-        : item
-    );
-    users.splice(0, users.length, ...updUsers);
-    return users.find((item) => item.id == req.body.id);
-  }
-  deleteUsers(req) {
-    let contrArr = users.map((item) => item.id);
-    let i = contrArr.indexOf(req.body.id);
-    let result = users.splice(i, 1);
-    return result ? true : false;
-  }
-  getUsersbyGender(req) {
-    if (req.params.gender == "F")
-      return users.filter((item) => item.isMan == false);
-    else if (req.params.gender == "M")
-      return users.filter((item) => item.isMan == true);
-  }
 }
 
 module.exports = new UsersControlles();

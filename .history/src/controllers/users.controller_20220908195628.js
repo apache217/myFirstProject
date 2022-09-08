@@ -57,7 +57,7 @@ class UsersControlles {
     let result = users.splice(i, 1);
     return result ? true : false;
   }
-  getUsersbyGender(req) {
+  getUsersbyMinMaxAge(req) {
     if (req.params.gender == "F")
       return users.filter((item) => item.isMan == false);
     else if (req.params.gender == "M")

@@ -31,30 +31,31 @@ router.put("/user/:id", (req, res) => {
 });
 
 router.patch("/user/:id", (req, res) => {
-  try {
-    const result = UsersControllers.patchUsersID(req);
-    res.send(result)
-  } catch (error) {
-    res.send(error.message);
-  }
+  const updUsers = users.map((item) =>
+    item.id == req.body.id
+      ? { ...item, name: req.body.name, isMan: req.body.isMan }
+      : item
+  );
+  users.splice(0, users.length, ...updUsers);
+  let response = users.find((item) => item.id == req.body.id);
+  res.send(response);
 });
 
 router.delete("/user/:id", (req, res) => {
-  try {
-    const result = UsersControllers.deleteUsers(req);
-    res.send(result)
-  } catch (error) {
-    res.send(error.message);
-  }
+  let contrArr = users.map((item) => item.id);
+  let i = contrArr.indexOf(req.body.id);
+  let result = users.splice(i, 1);
+  let response = result ? true : false;
+  res.send(response);
 });
 
 router.get(`/users/:gender`, (req, res) => {
-  try {
-    const result = UsersControllers.getUsersbyGender(req);
-    res.send(result)
-  } catch (error) {
-    res.send(error.message);
-  }
+  let sameGendUsers = new Array();
+  if (req.params.gender == "F")
+    sameGendUsers = users.filter((item) => item.isMan == false);
+  else if (req.params.gender == "M")
+    sameGendUsers = users.filter((item) => item.isMan == true);
+  res.send(sameGendUsers);
 });
 
 module.exports = router;
