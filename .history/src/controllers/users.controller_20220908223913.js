@@ -1,6 +1,7 @@
-const UsersService = require(`../services/users.services`);
+const UsersService = require(`../services/users.services`)
 
 class UsersControllers {
+
   async getUsers(req) {
     let request = req.query;
     let result;

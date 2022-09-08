@@ -1,10 +1,15 @@
 const UsersService = require(`../services/users.services`);
 
 class UsersControllers {
+  async Users() {
+    const users = await UsersService.getUsers();
+    return users;
+  }
+  static users = this.Users();
   async getUsers(req) {
     let request = req.query;
     let result;
-    const users = await UsersService.getUsers();
+    // const users = await UsersService.getUsers();
     if (!Object.keys(request).length) result = users;
     else if (Object.keys(request))
       result = users.filter(

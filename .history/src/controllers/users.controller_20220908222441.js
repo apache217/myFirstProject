@@ -1,6 +1,6 @@
-const UsersService = require(`../services/users.services`);
+const UsersService = require(`../services/users.services`)
 
-class UsersControllers {
+class UsersControlles {
   async getUsers(req) {
     let request = req.query;
     let result;
@@ -54,4 +54,4 @@ class UsersControllers {
   }
 }
 
-module.exports = new UsersControllers();
+module.exports = new UsersControlles();

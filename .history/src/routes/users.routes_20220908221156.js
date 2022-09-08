@@ -11,46 +11,46 @@ router.get(`/`, async (req, res) => {
   }
 });
 
-router.post("/user", async (req, res) => {
+router.post("/user", (req, res) => {
   try {
-    const result = await UsersControllers.postUsers(req);
-    res.send(result);
+    const result = UsersControllers.postUsers(req);
+    res.send(result)
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.put("/user/:id", async (req, res) => {
+router.put("/user/:id", (req, res) => {
   try {
-    const result = await UsersControllers.putUsersbyID(req);
-    res.send(result);
+    const result = UsersControllers.putUsersbyID(req);
+    res.send(result)
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.patch("/user/:id", async (req, res) => {
+router.patch("/user/:id", (req, res) => {
   try {
-    const result = await UsersControllers.patchUsersID(req);
-    res.send(result);
+    const result = UsersControllers.patchUsersID(req);
+    res.send(result)
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.delete("/user/:id", async (req, res) => {
+router.delete("/user/:id", (req, res) => {
   try {
-    const result = await UsersControllers.deleteUsers(req);
-    res.send(result);
+    const result = UsersControllers.deleteUsers(req);
+    res.send(result)
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.get(`/users/:gender`, async (req, res) => {
+router.get(`/users/:gender`, (req, res) => {
   try {
-    const result = await UsersControllers.getUsersbyGender(req);
-    res.send(result);
+    const result = UsersControllers.getUsersbyGender(req);
+    res.send(result)
   } catch (error) {
     res.send(error.message);
   }

@@ -4,7 +4,7 @@ class UsersControllers {
   async getUsers(req) {
     let request = req.query;
     let result;
-    const users = await UsersService.getUsers();
+    users = await UsersService.getUsers();
     if (!Object.keys(request).length) result = users;
     else if (Object.keys(request))
       result = users.filter(
@@ -14,7 +14,7 @@ class UsersControllers {
   }
 
   async postUsers(req) {
-    const users = await UsersService.getUsers();
+    users = await UsersService.getUsers();
     users.push(req.body);
     return users[users.length - 1];
   }

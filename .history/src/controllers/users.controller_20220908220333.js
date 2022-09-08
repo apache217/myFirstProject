@@ -1,10 +1,11 @@
-const UsersService = require(`../services/users.services`);
+const express = require(`express`);
+const UsersService = reqiure("../services/users.services")
 
-class UsersControllers {
-  async getUsers(req) {
+class UsersControlles {
+  getUsers(req) {
     let request = req.query;
     let result;
-    const users = await UsersService.getUsers();
+    const users = UsersService.getUsers();
     if (!Object.keys(request).length) result = users;
     else if (Object.keys(request))
       result = users.filter(
@@ -13,14 +14,14 @@ class UsersControllers {
     return result;
   }
 
-  async postUsers(req) {
-    const users = await UsersService.getUsers();
+  postUsers(req) {
+    const users = UsersService.getUsers();
     users.push(req.body);
     return users[users.length - 1];
   }
 
-  async putUsersbyID(req) {
-    const users = await UsersService.getUsers();
+  putUsersbyID(req) {
+    const users = UsersService.getUsers();
     const updUsers = users.map((item) =>
       item.id == req.body.id ? req.body : item
     );
@@ -28,8 +29,8 @@ class UsersControllers {
     return users.find((item) => item.id == req.body.id);
   }
 
-  async patchUsersID(req) {
-    const users = await UsersService.getUsers();
+  patchUsersID(req) {
+    const users = UsersService.getUsers();
     const updUsers = users.map((item) =>
       item.id == req.body.id
         ? { ...item, name: req.body.name, isMan: req.body.isMan }
@@ -38,15 +39,15 @@ class UsersControllers {
     users.splice(0, users.length, ...updUsers);
     return users.find((item) => item.id == req.body.id);
   }
-  async deleteUsers(req) {
-    const users = await UsersService.getUsers();
+  deleteUsers(req) {
+    const users = UsersService.getUsers();
     let contrArr = users.map((item) => item.id);
     let i = contrArr.indexOf(req.body.id);
     let result = users.splice(i, 1);
     return result ? true : false;
   }
-  async getUsersbyGender(req) {
-    const users = await UsersService.getUsers();
+  getUsersbyGender(req) {
+    const users = UsersService.getUsers();
     if (req.params.gender == "F")
       return users.filter((item) => item.isMan == false);
     else if (req.params.gender == "M")
@@ -54,4 +55,4 @@ class UsersControllers {
   }
 }
 
-module.exports = new UsersControllers();
+module.exports = new UsersControlles();
