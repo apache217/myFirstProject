@@ -1,0 +1,5 @@
+[
+  { "id": 0, "name": "Vlad", "age": 24, "isMan": true, "city": "Minsk" },
+  { "id": 2, "name": "Diana", "age": 26, "isMan": true, "city": "Minsk" },
+  { "id": 3, "name": "Lesha", "age": 24, "isMan": true, "city": "Minsk" }
+]

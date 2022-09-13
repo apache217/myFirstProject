@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Vlad",
+    "age": 24,
+    "isMan": true,
+    "city": "Minsk"
+  },
+  {
+    "id": 2,
+    "name": "Pasha",
+    "age": 16,
+    "isMan": true,
+    "country": "Grodno"
+  }
+]
