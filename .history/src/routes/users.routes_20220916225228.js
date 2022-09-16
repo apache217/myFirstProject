@@ -307,7 +307,7 @@ router
    *          description: Error
    *          schema:
    *            type: string
-   *            example: "Users not found."
+   *            example: "User not found."
    */
   .get(`/:gender`, UserController.getByGender);
 

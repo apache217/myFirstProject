@@ -47,16 +47,6 @@
     "isAdmin": true,
     "age": 25,
     "isMan": true,
-    "city": "Minsk"
-  },
-  {
-    "id": "5",
-    "login": "amigos@mail.ru",
-    "password": "Pa$$word1!",
-    "name": "Amigos",
-    "isAdmin": false,
-    "age": 40,
-    "isMan": true,
-    "city": "Minsk"
+    "country": "Belarus"
   }
 ]

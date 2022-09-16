@@ -15,9 +15,9 @@ const swaggerOptions = {
   swaggerDefinition: {
     info: {
       title: "TEST API",
-      description: "my first project",
+      description: "bla bla bla bla",
       servers: ["http://localhost:3000"],
-      version: "1.0.0",
+      version: "2.0.0",
     },
   },
   apis: ["./src/routes/*.js"],
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 Sentry.init({
-  dsn: "https://36a5ee6a068e4b3eadfa062b2c0eb25a@o1404093.ingest.sentry.io/6737022",
+  dsn: "https://86fc30b43e5e47cbb3a0206a363b137e@o1402605.ingest.sentry.io/6734876",
 });
 
 app.use("/api", routes);

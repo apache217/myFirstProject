@@ -3,7 +3,7 @@ const bodyParser = require(`body-parser`);
 const app = express();
 const routes = require("./src/routes/index");
 const fs = require("fs");
-const Sentry = require("@sentry/node");
+const Sentry = require("@sentry/node-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 require(`dotenv`).config();

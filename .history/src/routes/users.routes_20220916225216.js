@@ -295,9 +295,9 @@ router
    *        200:
    *          description: Successful response
    *          schema:
-   *              title: Return Array
+   *              title: Return Object
    *              type: object
-   *              example: array
+   *              example: object
    *        400:
    *          description: Error
    *          schema:
@@ -307,7 +307,7 @@ router
    *          description: Error
    *          schema:
    *            type: string
-   *            example: "Users not found."
+   *            example: "User not found."
    */
   .get(`/:gender`, UserController.getByGender);
 

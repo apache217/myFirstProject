@@ -34,23 +34,21 @@ router
    *      tags:
    *          - Users
    *      responses:
-   *        200:
-   *          description: Successful response
-   *          schema:
-   *              title: Return Array
-   *              type: object
-   *              example: array
-   *        404:
+   *          '200':
+   *              description: Successfull response
+   *          '400':
    *          description: Error
    *          schema:
    *            type: string
-   *            example: "User not found."
+   *            example: "Bad request."
+   *          '404':
+   *              description: Not found responce
    */
   .get(`/`, UserController.getUsers)
 
   /**
    * @swagger
-   *  /api/users/user:
+   *  /api/user:
    *    post:
    *      summary: Add new user
    *      description:
@@ -135,7 +133,7 @@ router
 
   /**
    * @swagger
-   * /api/users/user/{id}:
+   * /api/user/{id}:
    *  put:
    *      summary: Updates a user with {id}
    *      tags:
@@ -181,7 +179,7 @@ router
 
   /**
    * @swagger
-   * /api/users/user/{id}:
+   * /api/user/{id}:
    *  patch:
    *      summary: Patches a user with {id}
    *      tags:
@@ -227,7 +225,7 @@ router
 
   /**
    * @swagger
-   * /api/users/user/{id}:
+   * /api/user/{id}:
    *  delete:
    *      summary: Deletes a user with {id}
    *      tags:
@@ -272,9 +270,9 @@ router
 
   /**
    * @swagger
-   * /api/users/{gender}:
+   * /api/user/{id}:
    *  get:
-   *      summary: Get users by gender {gender}
+   *      summary: Updates a user with {id}
    *      tags:
    *        - Users
    *      consumes:
@@ -295,9 +293,9 @@ router
    *        200:
    *          description: Successful response
    *          schema:
-   *              title: Return Array
+   *              title: Return Object
    *              type: object
-   *              example: array
+   *              example: object
    *        400:
    *          description: Error
    *          schema:
@@ -307,7 +305,12 @@ router
    *          description: Error
    *          schema:
    *            type: string
-   *            example: "Users not found."
+   *            example: "User not found."
+   *        500:
+   *          description: Error
+   *          schema:
+   *            type: string
+   *            example: "Unable to replace user."
    */
   .get(`/:gender`, UserController.getByGender);
 

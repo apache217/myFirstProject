@@ -1,0 +1,7 @@
+[
+  { "id": "0", "login": "Vlados", "password": "pswrd", "name": "Vlados", "isAdmin": false, "age": 24, "isMan": true, "city": "Minsk" },
+  { "id": "1", "login": "Pasha", "password": "pswrd",  "name": "Pasha", "isAdmin": false, "age": 16, "isMan": true, "city": "Grodno" },
+  { "id": "2", "login": "Diana", "password": "pswrd",  "name": "Diana", "isAdmin": false, "age": 26, "isMan": false, "city": "Minsk" },
+  { "id": "3", "login": "Lesha", "password": "pswrd",  "name": "Lesha", "isAdmin": false, "age": 24, "isMan": true, "city": "Minsk" },
+  { "id": "4", "login": "Pasha", "password": "pswrd",  "name": "Pasha", "isAdmin": true, "age": 25, "isMan": true, "country": "Belarus" }
+]

@@ -44,64 +44,42 @@ class UserController {
         else return res.status(500).send({ message: "Unable to create user." });
       } else return res.status(400).send({ message: "Bad request." });
     }
+
   }
 
   async changeUser(req, res) {
-    const errors = validationResult(req);
-    console.log(errors);
-    if (!errors.isEmpty()) {
-      console.log("--Error--");
-      return res.status(400).send({
-        success: false,
-        errors: errors.array(),
-      });
-    } else {
-      console.log("--changeUser--");
-      if (req.body.user && req.params.id) {
-        if (!req.users.hasOwnProperty(req.params.id))
-          return res.status(404).send({ message: "User not found." });
-        req.users[req.params.id] = { id: req.params.id, ...req.body.user };
-        let result = await UsersService.changeUser(req.users);
-        if (result)
-          return res.status(200).send({ user: req.users[req.params.id] });
-        else
-          return res.status(500).send({ message: "Unable to replace user." });
-      } else return res.status(400).send({ message: "Bad request." });
-    }
+    if (req.body.user && req.params.id) {
+      if (!req.users.hasOwnProperty(req.params.id))
+        return res.status(404).send({ message: "User not found." });
+      req.users[req.params.id] = { id: req.params.id, ...req.body.user };
+      let result = await UsersService.changeUser(req.users);
+      if (result)
+        return res.status(200).send({ user: req.users[req.params.id] });
+      else return res.status(500).send({ message: "Unable to replace user." });
+    } else return res.status(400).send({ message: "Bad request." });
   }
 
   async updateUser(req, res) {
-    const errors = validationResult(req);
-    console.log(errors);
-    if (!errors.isEmpty()) {
-      console.log("--Error--");
-      return res.status(400).send({
-        success: false,
-        errors: errors.array(),
-      });
-    } else {
-      console.log("--updateUser--");
-      if (
-        (req.body.user && req.params.id) ||
-        (req.body.user && req.params.id === "0")
-      ) {
-        if (!req.users.hasOwnProperty(req.params.id))
-          return res.status(404).send({ message: "User not found." });
-        req.users = req.users.map((item) =>
-          item.id == req.params.id
-            ? {
-                ...item,
-                name: req.body.user.name,
-                age: req.body.user.age,
-              }
-            : item
-        );
-        let result = await UsersService.updateUser(req.users);
-        if (result)
-          return res.status(200).send({ user: req.users[req.params.id] });
-        else return res.status(500).send({ message: "Unable to update user." });
-      } else return res.status(400).send({ message: "Bad request." });
-    }
+    if (
+      (req.body.user && req.params.id) ||
+      (req.body.user && req.params.id === "0")
+    ) {
+      if (!req.users.hasOwnProperty(req.params.id))
+        return res.status(404).send({ message: "User not found." });
+      req.users = req.users.map((item) =>
+        item.id == req.params.id
+          ? {
+              ...item,
+              name: req.body.user.name,
+              age: req.body.user.age,
+            }
+          : item
+      );
+      let result = await UsersService.updateUser(req.users);
+      if (result)
+        return res.status(200).send({ user: req.users[req.params.id] });
+      else return res.status(500).send({ message: "Unable to update user." });
+    } else return res.status(400).send({ message: "Bad request." });
   }
 
   async deleteUser(req, res) {

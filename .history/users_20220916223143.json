@@ -2,7 +2,7 @@
   {
     "id": "0",
     "login": "vlados@mail.ru",
-    "password": "Pa$$word1!",
+    "password": "pswrd",
     "name": "Vlados",
     "isAdmin": false,
     "age": 24,
@@ -12,7 +12,7 @@
   {
     "id": "1",
     "login": "pasha@mail.ru",
-    "password": "Pa$$word1!",
+    "password": "pswrd",
     "name": "Pasha",
     "isAdmin": false,
     "age": 16,
@@ -22,7 +22,7 @@
   {
     "id": "2",
     "login": "diana@mail.ru",
-    "password": "Pa$$word1!",
+    "password": "pswrd",
     "name": "Diana",
     "isAdmin": false,
     "age": 26,
@@ -32,7 +32,7 @@
   {
     "id": "3",
     "login": "lesha@mail.ru",
-    "password": "Pa$$word1!",
+    "password": "pswrd",
     "name": "Lesha",
     "isAdmin": false,
     "age": 24,
@@ -42,21 +42,11 @@
   {
     "id": "4",
     "login": "pasha@mail.ru",
-    "password": "Pa$$word1!",
+    "password": "pswrd",
     "name": "Pasha",
     "isAdmin": true,
     "age": 25,
     "isMan": true,
-    "city": "Minsk"
-  },
-  {
-    "id": "5",
-    "login": "amigos@mail.ru",
-    "password": "Pa$$word1!",
-    "name": "Amigos",
-    "isAdmin": false,
-    "age": 40,
-    "isMan": true,
-    "city": "Minsk"
+    "country": "Belarus"
   }
 ]
