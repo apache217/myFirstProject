@@ -34,50 +34,26 @@ class UsersService {
   }
   changeUser(data) {
     return new Promise((res, rej) => {
-      try {
-        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
-          if (error) {
-            Sentry.captureException(error);
-            return res(false);
-          }
-          return res({ message: "User replaced." });
-        });
-      } catch (error) {
-        console.log(error);
-        Sentry.captureException(error);
-      }
+      fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
+        if (err) return res(false);
+        return res({ message: "User replaced." });
+      });
     });
   }
   updateUser(data) {
     return new Promise((res, rej) => {
-      try {
-        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
-          if (error) {
-            Sentry.captureException(error);
-            return res(false);
-          }
-          return res({ user: "User updated." });
-        });
-      } catch (error) {
-        console.log(error);
-        Sentry.captureException(error);
-      }
+      fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
+        if (err) return res(false);
+        return res({ user: "User updated." });
+      });
     });
   }
   deleteUser(data) {
     return new Promise((res, rej) => {
-      try {
-        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
-          if (error) {
-            Sentry.captureException(error);
-            return res(false);
-          }
-          return res(true);
-        });
-      } catch (error) {
-        console.log(error);
-        Sentry.captureException(error);
-      }
+      fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
+        if (err) return res(false);
+        return res(true);
+      });
     });
   }
 }
