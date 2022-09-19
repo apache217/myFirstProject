@@ -6,10 +6,8 @@ class UsersService {
     return new Promise((res, rej) => {
       try {
         fs.readFile("./users.json", "utf8", function (error, data) {
-          if (error) {
-            Sentry.captureException(error);
-            throw error;
-          }
+          if (error) throw error;
+          Sentry.captureException(error);
           return res(JSON.parse(data));
         });
       } catch (error) {
@@ -21,7 +19,7 @@ class UsersService {
   createUser(data) {
     return new Promise((res, rej) => {
       try {
-        fs.writeFile("./users.json", JSON.stringify(data), (error, data) => {
+        fs.writeFile("./users.json", JSON.stringify(data), (err, data) => {
           if (error) {
             Sentry.captureException(error);
             return res(false);
@@ -37,7 +35,7 @@ class UsersService {
   changeUser(data) {
     return new Promise((res, rej) => {
       try {
-        fs.writeFile("./users.json", JSON.stringify(data), (error, data) => {
+        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
           if (error) {
             Sentry.captureException(error);
             return res(false);
@@ -53,7 +51,7 @@ class UsersService {
   updateUser(data) {
     return new Promise((res, rej) => {
       try {
-        fs.writeFile("./users.json", JSON.stringify(data), (error, data) => {
+        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
           if (error) {
             Sentry.captureException(error);
             return res(false);
@@ -69,7 +67,7 @@ class UsersService {
   deleteUser(data) {
     return new Promise((res, rej) => {
       try {
-        fs.writeFile("./users.json", JSON.stringify(data), (error, data) => {
+        fs.writeFile("./users.json", JSON.stringify(data), (err, response) => {
           if (error) {
             Sentry.captureException(error);
             return res(false);

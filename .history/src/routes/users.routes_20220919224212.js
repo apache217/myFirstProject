@@ -230,7 +230,7 @@ router
    * /api/users/user/{id}:
    *  delete:
    *      summary: Deletes a user with {id}
-   *      description: Deletes a user with {id}
+   *      description: Returns all users from DB
    *      tags:
    *          - Users
    *      responses:

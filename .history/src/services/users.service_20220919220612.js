@@ -3,37 +3,33 @@ const Sentry = require("@sentry/node");
 
 class UsersService {
   getUsers() {
+    try {
     return new Promise((res, rej) => {
-      try {
         fs.readFile("./users.json", "utf8", function (error, data) {
-          if (error) {
-            Sentry.captureException(error);
-            throw error;
-          }
+          if (error) throw error;
           return res(JSON.parse(data));
         });
-      } catch (error) {
+      });
+    } catch (error) {
         console.log(error);
         Sentry.captureException(error);
       }
-    });
+    };
   }
   createUser(data) {
+    try {
     return new Promise((res, rej) => {
-      try {
         fs.writeFile("./users.json", JSON.stringify(data), (error, data) => {
-          if (error) {
-            Sentry.captureException(error);
-            return res(false);
-          }
+          if (error) return res(false)
           return res({ message: "User created." });
         });
-      } catch (error) {
+      })
+     } catch (error) {
         console.log(error);
         Sentry.captureException(error);
       }
-    });
-  }
+    }
+    
   changeUser(data) {
     return new Promise((res, rej) => {
       try {

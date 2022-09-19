@@ -3,20 +3,17 @@ const Sentry = require("@sentry/node");
 
 class UsersService {
   getUsers() {
+    try{
     return new Promise((res, rej) => {
-      try {
         fs.readFile("./users.json", "utf8", function (error, data) {
-          if (error) {
-            Sentry.captureException(error);
-            throw error;
-          }
+          if (error) throw error;
           return res(JSON.parse(data));
         });
-      } catch (error) {
+      }} catch (error) {
         console.log(error);
         Sentry.captureException(error);
       }
-    });
+    };
   }
   createUser(data) {
     return new Promise((res, rej) => {
