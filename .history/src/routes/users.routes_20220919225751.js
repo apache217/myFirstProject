@@ -39,13 +39,13 @@ router
    *        - in: path
    *          name: min
    *          required: true
-   *          description: Set {min} age for users to return
+   *          description: Set a {min} age for users to return
    *          type: integer
    *      parameters:
    *        - in: path
    *          name: max
    *          required: true
-   *          description: Set {max} age for users to return
+   *          description: Set a {max} age for users to return
    *          type: integer
    *      responses:
    *        200:
