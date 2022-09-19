@@ -192,7 +192,7 @@ router
    *        - in: path
    *          name: id
    *          required: true
-   *          description: Set an {id} of a user to patch
+   *          description: Set an {id} of a user to update
    *          type: integer
    *        - in: body
    *          name: Users
@@ -235,12 +235,6 @@ router
    *          - Users
    *      consumes:
    *          - application/json
-   *      parameters:
-   *        - in: path
-   *          name: id
-   *          required: true
-   *          description: Set an {id} of a user to delete
-   *          type: integer
    *      responses:
    *        200:
    *          description: Successful response
@@ -276,10 +270,14 @@ router
    *        - application/json
    *      parameters:
    *        - in: path
-   *          name: gender
+   *          name: id
    *          required: true
-   *          description: Set a {gender} of the users to return
-   *          type: string
+   *          description: Set an {id} of a user to update
+   *          type: integer
+   *        - in: body
+   *          name: Users
+   *          required: true
+   *          description: Object to update
    *          schema:
    *              $ref: '#/definitions/Users'
    *      responses:

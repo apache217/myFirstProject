@@ -192,7 +192,7 @@ router
    *        - in: path
    *          name: id
    *          required: true
-   *          description: Set an {id} of a user to patch
+   *          description: Set an {id} of a user to update
    *          type: integer
    *        - in: body
    *          name: Users

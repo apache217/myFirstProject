@@ -192,7 +192,7 @@ router
    *        - in: path
    *          name: id
    *          required: true
-   *          description: Set an {id} of a user to patch
+   *          description: Set an {id} of a user to update
    *          type: integer
    *        - in: body
    *          name: Users
@@ -280,6 +280,10 @@ router
    *          required: true
    *          description: Set a {gender} of the users to return
    *          type: string
+   *        - in: body
+   *          name: Users
+   *          required: true
+   *          description: Object to update
    *          schema:
    *              $ref: '#/definitions/Users'
    *      responses:
