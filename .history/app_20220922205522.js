@@ -17,6 +17,7 @@ const swaggerOptions = {
       title: "TEST API",
       description: "my first project",
       servers: ["http://localhost:3000"],
+      // servers: ["https://app.swaggerhub.com/be23eab3-2bba-40a5-bcb4-1a40daee305d"],
       version: "1.0.0",
     },
   },

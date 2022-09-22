@@ -112,7 +112,7 @@ router
    *         description: login for user
    *       password:
    *         type: string
-   *         example: Pa$$word1!
+   *         example: 123123
    *         description: password for user
    *       name:
    *         type: string
@@ -160,7 +160,7 @@ router
    *          name: id
    *          required: true
    *          description: Set an {id} of a user to update
-   *          type: string
+   *          type: integer
    *        - in: body
    *          name: Users
    *          required: true
@@ -206,7 +206,7 @@ router
    *          name: id
    *          required: true
    *          description: Set an {id} of a user to patch
-   *          type: string
+   *          type: integer
    *        - in: body
    *          name: Users
    *          required: true
@@ -253,7 +253,7 @@ router
    *          name: id
    *          required: true
    *          description: Set an {id} of a user to delete
-   *          type: string
+   *          type: integer
    *      responses:
    *        200:
    *          description: Successful response

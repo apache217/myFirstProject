@@ -93,10 +93,6 @@ class UserController {
                 ...item,
                 name: req.body.name,
                 age: req.body.age,
-                password: req.body.password,
-                age: req.body.age,
-                isMan: req.body.isMan,
-                city: req.body.city
               }
             : item
         );

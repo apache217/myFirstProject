@@ -96,7 +96,7 @@ class UserController {
                 password: req.body.password,
                 age: req.body.age,
                 isMan: req.body.isMan,
-                city: req.body.city
+                city: req.body.req
               }
             : item
         );

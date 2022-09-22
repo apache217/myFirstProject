@@ -253,7 +253,7 @@ router
    *          name: id
    *          required: true
    *          description: Set an {id} of a user to delete
-   *          type: string
+   *          type: integer
    *      responses:
    *        200:
    *          description: Successful response

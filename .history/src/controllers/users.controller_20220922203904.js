@@ -57,10 +57,10 @@ class UserController {
       });
     } else {
       console.log("--changeUser--");
-      if (req.body && req.params.id) {
+      if (req.body.user && req.params.id) {
         if (!req.users.hasOwnProperty(req.params.id))
           return res.status(404).send({ message: "User not found." });
-        req.users[req.params.id] = { id: req.params.id, ...req.body };
+        req.users[req.params.id] = { id: req.params.id, ...req.body.user };
         let result = await UsersService.changeUser(req.users);
         if (result)
           return res.status(200).send({ user: req.users[req.params.id] });
@@ -82,8 +82,8 @@ class UserController {
     } else {
       console.log("--updateUser--");
       if (
-        (req.body && req.params.id) ||
-        (req.body && req.params.id === "0")
+        (req.body.user && req.params.id) ||
+        (req.body.user && req.params.id === "0")
       ) {
         if (!req.users.hasOwnProperty(req.params.id))
           return res.status(404).send({ message: "User not found." });
@@ -91,12 +91,8 @@ class UserController {
           item.id == req.params.id
             ? {
                 ...item,
-                name: req.body.name,
-                age: req.body.age,
-                password: req.body.password,
-                age: req.body.age,
-                isMan: req.body.isMan,
-                city: req.body.city
+                name: req.body.user.name,
+                age: req.body.user.age,
               }
             : item
         );
@@ -109,9 +105,9 @@ class UserController {
   }
 
   async deleteUser(req, res) {
-    if (req.params.id || req.params.id === "0") {
+    if (req.params.id || +req.params.id === 0) {
       if (req.users.hasOwnProperty(req.params.id)) {
-        let index = req.users.findIndex((item) => item.id === req.params.id);
+        let index = req.users.findIndex((item) => +item.id === +req.params.id);
         req.users.splice(index, 1);
         let result = await UsersService.deleteUser(req.users);
         if (result) return res.status(200).send(result);

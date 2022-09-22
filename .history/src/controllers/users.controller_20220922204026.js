@@ -93,10 +93,6 @@ class UserController {
                 ...item,
                 name: req.body.name,
                 age: req.body.age,
-                password: req.body.password,
-                age: req.body.age,
-                isMan: req.body.isMan,
-                city: req.body.city
               }
             : item
         );
@@ -109,7 +105,7 @@ class UserController {
   }
 
   async deleteUser(req, res) {
-    if (req.params.id || req.params.id === "0") {
+    if (req.params.id || +req.params.id === 0) {
       if (req.users.hasOwnProperty(req.params.id)) {
         let index = req.users.findIndex((item) => item.id === req.params.id);
         req.users.splice(index, 1);
